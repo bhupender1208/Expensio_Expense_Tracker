@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function ownsUser(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    match /users/{userId}/expenses/{expenseId} {
+      allow read, delete: if ownsUser(userId);
+      allow create, update: if ownsUser(userId)
+        && request.resource.data.keys().hasOnly([
+          'title',
+          'amount',
+          'category',
+          'createdAt',
+          'deletedAt'
+        ])
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.amount is number
+        && request.resource.data.category is string
+        && request.resource.data.category in [
+          'Food',
+          'Transport',
+          'Shopping',
+          'Entertainment',
+          'Other'
+        ]
+        && request.resource.data.createdAt is timestamp
+        && (!request.resource.data.keys().hasAny(['deletedAt'])
+          || request.resource.data.deletedAt == null
+          || request.resource.data.deletedAt is timestamp);
+    }
+
+    match /users/{userId}/metadata/{documentId} {
+      allow read, write: if ownsUser(userId);
+    }
+  }
+}

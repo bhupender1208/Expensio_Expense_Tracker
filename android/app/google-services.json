@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "166839128640",
+    "project_id": "expensio-fd919",
+    "storage_bucket": "expensio-fd919.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166839128640:android:cf666b9e0d4a0223fe05a5",
+        "android_client_info": {
+          "package_name": "com.example.mini_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166839128640-os4hls0780ebvmos0hg7ea7pc6vcaj0n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mini_tracker",
+            "certificate_hash": "e04952918387290662d8e905915d23349c449800"
+          }
+        },
+        {
+          "client_id": "166839128640-fda7939jkf5fsngqir26b90ijf3dl3le.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0jeTZ3vF-lGK-XH1gHUCzxsiS5KIP-nA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166839128640-fda7939jkf5fsngqir26b90ijf3dl3le.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
